@@ -77,6 +77,42 @@ namespace GroenKinderbijslag
 
         }
 
+        static Double berekenKinderBijslag(List<Kind> tkinderen)
+        {
+            Double kinderbijslag = 0.0;
+            int ak = tkinderen.Count; // aantal kinderen
+
+            foreach(Kind individu in tkinderen)
+            {
+                if (individu.Jongertwaalf == true)
+                {
+                    kinderbijslag = kinderbijslag + 150;
+                }
+                else
+                {
+                    kinderbijslag = kinderbijslag + 235;
+                }
+            }
+
+            if (ak == 3 || ak == 4)
+            {
+                kinderbijslag = kinderbijslag * 1.02;
+            }
+
+            if (ak == 5)
+            {
+                kinderbijslag = kinderbijslag * 1.03;
+            }
+
+            if (ak >= 6)
+            {
+                kinderbijslag = kinderbijslag * 1.035;
+            }
+
+            return kinderbijslag;
+
+        }
+
         static void Main(string[] args)
         {
             List<Kind> kinderen = new List<Kind>();
@@ -98,6 +134,8 @@ namespace GroenKinderbijslag
             {
                 Console.WriteLine(individu);
             }
+
+            Console.WriteLine("De totale kinderbijslag bedraagt: {0}", berekenKinderBijslag(kinderen));
             
         }
     }
