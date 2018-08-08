@@ -72,7 +72,7 @@ namespace GroenKinderbijslag
             }
             else
             {
-                Console.WriteLine("Dit is geen kind!");
+                Console.WriteLine("Dit is een volwassene!");
             }
 
         }
